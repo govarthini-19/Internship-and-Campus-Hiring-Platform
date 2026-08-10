@@ -24,3 +24,86 @@ class HiringPlatform:
                   command=self.post_job).pack(pady=8)
         tk.Button(root, text="View Opportunities",
                   command=self.view_jobs).pack(pady=8)
+def register(self):
+        win = tk.Toplevel(self.root)
+        win.title("Student Registration")
+
+        tk.Label(win, text="Name").pack()
+        name = tk.Entry(win)
+        name.pack()
+
+        tk.Label(win, text="Skills").pack()
+        skills = tk.Entry(win)
+        skills.pack()
+
+        def save():
+            if name.get() and skills.get():
+                self.students.append(
+                    Student(name.get(),
+                            skills.get().lower().split(","))
+                )
+                messagebox.showinfo(
+                    "Success", "Registration Successful")
+                win.destroy()
+            else:
+                messagebox.showerror(
+                    "Error", "Enter all details")
+
+        tk.Button(win, text="Register",
+                  command=save).pack(pady=10)
+def register(self):
+        win = tk.Toplevel(self.root)
+        win.title("Student Registration")
+
+        tk.Label(win, text="Name").pack()
+        name = tk.Entry(win)
+        name.pack()
+
+        tk.Label(win, text="Skills").pack()
+        skills = tk.Entry(win)
+        skills.pack()
+
+        def save():
+            if name.get() and skills.get():
+                self.students.append(
+                    Student(name.get(),
+                            skills.get().lower().split(","))
+                )
+                messagebox.showinfo(
+                    "Success", "Registration Successful")
+                win.destroy()
+            else:
+                messagebox.showerror(
+                    "Error", "Enter all details")
+
+        tk.Button(win, text="Register",
+                  command=save).pack(pady=10)
+
+    def post_job(self):
+        win = tk.Toplevel(self.root)
+        win.title("Post Internship")
+
+        labels = ["Company", "Role", "Required Skills"]
+        entries = []
+
+        for label in labels:
+            tk.Label(win, text=label).pack()
+            e = tk.Entry(win)
+            e.pack()
+            entries.append(e)
+
+        def post():
+            if all(e.get() for e in entries):
+                self.jobs.append(
+                    Company(entries[0].get(),
+                            entries[1].get(),
+                            entries[2].get().lower().split(","))
+                )
+                messagebox.showinfo(
+                    "Success", "Internship Posted")
+                win.destroy()
+
+        tk.Button(win, text="Post",
+                  command=post).pack(pady=10)
+
+    
