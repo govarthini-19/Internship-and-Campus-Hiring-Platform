@@ -105,5 +105,47 @@ def register(self):
 
         tk.Button(win, text="Post",
                   command=post).pack(pady=10)
+def view_jobs(self):
+        win = tk.Toplevel(self.root)
+        win.title("Available Opportunities")
+        win.geometry("450x400")
+
+        for job in self.jobs:
+            skills = ", ".join(job.skills)
+            text = f"{job.name} | {job.role} | Skills: {skills}"
+
+            tk.Label(win, text=text).pack(pady=5)
+
+            tk.Button(win, text="Apply",
+                      command=lambda j=job:
+                      self.apply(j)).pack()
+
+    def apply(self, job):
+        if not self.students:
+            messagebox.showwarning(
+                "Warning", "Register as student first")
+            return
+
+        student = self.students[-1]
+        required = set(job.skills)
+        candidate = set(student.skills)
+
+        match = len(required & candidate)
+
+        if match > 0:
+            messagebox.showinfo(
+                "Application",
+                f"{student.name} applied for {job.role}\n"
+                f"Skill Match: {match}/{len(required)}"
+            )
+        else:
+            messagebox.showwarning(
+                "Application",
+                "Skills do not match this opportunity"
+            )
+
+root = tk.Tk()
+app = HiringPlatform(root)
+root.mainloop()
 
     
