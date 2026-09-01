@@ -176,3 +176,9 @@ if not st.session_state.logged_in:
                     st.success(
                         "Registration successful!"
                     )
+                else:
+                    st.error(
+                        "Username already exists!"
+                    )
+    else:
+        st.header("🔐 User Login")
