@@ -50,3 +50,12 @@ def create_tables():
     con.commit()
     con.close()
 create_tables()
+def register(username, password, role):
+    con = connect()
+    cur = con.cursor()
+
+    cur.execute(
+        "SELECT * FROM Users WHERE username=?",
+        (username,)
+    )
+    user = cur.fetchone()
