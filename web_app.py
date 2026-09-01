@@ -94,3 +94,11 @@ def add_student(username, name, cgpa, skills):
 def add_company(username, company_name):
     con = connect()
     cur = con.cursor()
+    cur.execute(
+        """INSERT INTO Companies
+           (username,company_name)
+           VALUES(?,?)""",
+        (username, company_name)
+    )
+    con.commit()
+    con.close()
