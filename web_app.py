@@ -300,3 +300,18 @@ elif st.session_state.role == "student":
                             "Already applied!"
                         )
                 st.divider()
+    elif menu == "My Applications":
+        st.header("📋 My Applications")
+        con = connect()
+        cur = con.cursor()
+        cur.execute(
+            """SELECT Applications.application_id,
+                      Jobs.company_name,
+                      Jobs.role,
+                      Applications.status
+               FROM Applications
+               JOIN Jobs
+               ON Applications.job_id = Jobs.job_id
+               WHERE Applications.student_username=?""",
+            (st.session_state.username,)
+        )
