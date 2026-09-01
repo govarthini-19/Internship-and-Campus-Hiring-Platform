@@ -147,3 +147,8 @@ if "username" not in st.session_state:
     st.session_state.username = ""
 if "role" not in st.session_state:
     st.session_state.role = ""
+if not st.session_state.logged_in:
+    menu = st.sidebar.selectbox(
+        "Menu",
+        ["Login", "Register"]
+    )
