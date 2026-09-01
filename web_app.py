@@ -229,3 +229,12 @@ elif st.session_state.role == "student":
             st.metric("Jobs", "Available")
         with col3:
             st.metric("Status", "Active")
+    elif menu == "My Profile":
+        st.header("👤 Student Profile")
+        name = st.text_input("Name")
+        cgpa = st.number_input(
+            "CGPA",
+            min_value=0.0,
+            max_value=10.0,
+            step=0.1
+        )
