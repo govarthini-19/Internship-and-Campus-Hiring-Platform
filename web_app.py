@@ -80,3 +80,12 @@ def login(username, password):
     user = cur.fetchone()
     con.close()
     return user
+def add_student(username, name, cgpa, skills):
+    con = connect()
+    cur = con.cursor()
+    cur.execute(
+        """INSERT INTO Students
+           (username,name,cgpa,skills)
+           VALUES(?,?,?,?)""",
+        (username, name, cgpa, skills)
+    )
