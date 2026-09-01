@@ -72,3 +72,11 @@ def register(username, password, role):
 def login(username, password):
     con = connect()
     cur = con.cursor()
+    cur.execute(
+        """SELECT id, role FROM Users
+           WHERE username=? AND password=?""",
+        (username, password)
+    )
+    user = cur.fetchone()
+    con.close()
+    return user
