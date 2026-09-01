@@ -193,3 +193,8 @@ if not st.session_state.logged_in:
                 username,
                 password
             )
+            if user:
+                st.session_state.logged_in = True
+                st.session_state.username = username
+                st.session_state.role = user[1]
+                st.rerun()
