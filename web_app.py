@@ -1,4 +1,3 @@
-import streamlit as st
 import sqlite3
 def connect():
     return sqlite3.connect("hiring.db")
@@ -315,3 +314,14 @@ elif st.session_state.role == "student":
                WHERE Applications.student_username=?""",
             (st.session_state.username,)
         )
+        applications = cur.fetchall()
+        con.close()
+        if not applications:
+            st.info("No applications yet")
+        else:
+            for app in applications:
+                st.write("Application ID:", app[0])
+                st.write("Company:", app[1])
+                st.write("Role:", app[2])
+                st.write("Status:", app[3])
+                st.divider()
