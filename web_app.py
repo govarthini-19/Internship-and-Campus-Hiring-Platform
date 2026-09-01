@@ -249,3 +249,10 @@ elif st.session_state.role == "student":
                 cgpa,
                 skills.lower()
             )
+            st.success(
+                "Profile saved successfully!"
+            )
+    elif menu == "Available Jobs":
+        st.header("💼 Available Jobs")
+        con = connect()
+        cur = con.cursor()
