@@ -22,3 +22,10 @@ def create_tables():
         skills TEXT
     )
     """)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS Companies(
+        company_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT,
+        company_name TEXT
+    )
+    """)
