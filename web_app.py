@@ -116,3 +116,12 @@ def post_job(company_name, role, skills, cgpa, openings):
 def apply_job(username, job_id):
     con = connect()
     cur = con.cursor()
+    cur.execute(
+        """SELECT * FROM Applications
+           WHERE student_username=? AND job_id=?""",
+        (username, job_id)
+    )
+    existing = cur.fetchone()
+    if existing:
+        con.close()
+        return False
