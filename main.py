@@ -68,3 +68,30 @@ def student_menu(user_id):
                 print(app)
         elif choice == "5":
             break
+def company_menu(user_id):
+    while True:
+        title("COMPANY DASHBOARD")
+        print("1. Create Company")
+        print("2. Post Job")
+        print("3. View Jobs")
+        print("4. Shortlist Candidates")
+        print("5. Logout")
+        choice = input("Choice: ")
+        if choice == "1":
+            name = input("Company Name: ")
+            add_company(user_id, name)
+        elif choice == "2":
+            company_id = int(input("Company ID: "))
+            role = input("Job Role: ")
+            skills = input("Required Skills: ")
+            cgpa = float(input("Minimum CGPA: "))
+            openings = int(input("Openings: "))
+            add_job(company_id, role, skills, cgpa, openings)
+        elif choice == "3":
+            for job in view_jobs():
+                print(job)
+        elif choice == "4":
+            job_id = int(input("Job ID: "))
+            shortlist(job_id)
+        elif choice == "5":
+            break
