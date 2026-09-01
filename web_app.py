@@ -125,3 +125,12 @@ def apply_job(username, job_id):
     if existing:
         con.close()
         return False
+    cur.execute(
+        """INSERT INTO Applications
+           (student_username,job_id,status)
+           VALUES(?,?,?)""",
+        (username, job_id, "Applied")
+    )
+    con.commit()
+    con.close()
+    return True
