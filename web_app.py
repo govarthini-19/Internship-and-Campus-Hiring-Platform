@@ -152,3 +152,10 @@ if not st.session_state.logged_in:
         "Menu",
         ["Login", "Register"]
     )
+    if menu == "Register":
+        st.header("📝 User Registration")
+        username = st.text_input("Username")
+        password = st.text_input(
+            "Password",
+            type="password"
+        )
