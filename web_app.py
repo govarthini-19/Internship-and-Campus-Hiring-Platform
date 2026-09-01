@@ -265,3 +265,17 @@ elif st.session_state.role == "student":
         con.close()
         if not jobs:
             st.warning("No jobs available")
+        else:
+            for job in jobs:
+
+                st.subheader(
+                    job[2] + " - " + job[1]
+                )
+                st.write(
+                    "Required Skills:",
+                    job[3]
+                )
+                st.write(
+                    "Minimum CGPA:",
+                    job[4]
+                )
