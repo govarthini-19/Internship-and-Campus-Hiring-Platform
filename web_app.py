@@ -5,12 +5,20 @@ def connect():
 def create_tables():
     con = connect()
     cur = con.cursor()
-
     cur.execute("""
     CREATE TABLE IF NOT EXISTS Users(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         username TEXT UNIQUE,
         password TEXT,
         role TEXT
+    )
+    """)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS Students(
+        student_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT,
+        name TEXT,
+        cgpa REAL,
+        skills TEXT
     )
     """)
