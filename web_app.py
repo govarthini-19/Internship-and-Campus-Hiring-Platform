@@ -217,3 +217,9 @@ elif st.session_state.role == "student":
             "Logout"
         ]
     )
+    if menu == "Dashboard":
+        st.header("🎓 Student Dashboard")
+        st.info(
+            "Welcome to Internship & Campus Hiring Platform!"
+        )
+        col1, col2, col3 = st.columns(3)
