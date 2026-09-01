@@ -36,6 +36,35 @@ def main():
             break
         else:
             print("Invalid choice!")
-
-
 main()
+from students import add_student
+from jobs import view_jobs
+from applications import apply, view_applications
+from helpers import title
+def student_menu(user_id):
+    while True:
+        title("STUDENT DASHBOARD")
+        print("1. Create Profile")
+        print("2. View Jobs")
+        print("3. Apply Job")
+        print("4. My Applications")
+        print("5. Logout")
+        choice = input("Choice: ")
+        if choice == "1":
+            name = input("Name: ")
+            cgpa = float(input("CGPA: "))
+            skills = input("Skills: ")
+            add_student(user_id, name, cgpa, skills)
+        elif choice == "2":
+            for job in view_jobs():
+                print(job)
+        elif choice == "3":
+            job_id = int(input("Job ID: "))
+            student_id = int(input("Student ID: "))
+            apply(student_id, job_id)
+        elif choice == "4":
+            student_id = int(input("Student ID: "))
+            for app in view_applications(student_id):
+                print(app)
+        elif choice == "5":
+            break
