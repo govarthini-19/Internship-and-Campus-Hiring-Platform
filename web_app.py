@@ -256,3 +256,12 @@ elif st.session_state.role == "student":
         st.header("💼 Available Jobs")
         con = connect()
         cur = con.cursor()
+        cur.execute(
+            """SELECT job_id,company_name,role,
+                      required_skills,min_cgpa,openings
+               FROM Jobs"""
+        )
+        jobs = cur.fetchall()
+        con.close()
+        if not jobs:
+            st.warning("No jobs available")
