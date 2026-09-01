@@ -203,8 +203,17 @@ if not st.session_state.logged_in:
                     "Invalid username or password!"
                 )
 elif st.session_state.role == "student":
-
     st.sidebar.success(
         "Student: " +
         st.session_state.username
+    )
+    menu = st.sidebar.selectbox(
+        "Student Menu",
+        [
+            "Dashboard",
+            "My Profile",
+            "Available Jobs",
+            "My Applications",
+            "Logout"
+        ]
     )
