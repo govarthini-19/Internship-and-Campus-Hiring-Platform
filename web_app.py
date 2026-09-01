@@ -223,3 +223,9 @@ elif st.session_state.role == "student":
             "Welcome to Internship & Campus Hiring Platform!"
         )
         col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Role", "Student")
+        with col2:
+            st.metric("Jobs", "Available")
+        with col3:
+            st.metric("Status", "Active")
