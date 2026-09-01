@@ -159,3 +159,10 @@ if not st.session_state.logged_in:
             "Password",
             type="password"
         )
+        role = st.selectbox(
+            "Select Role",
+            ["student", "company"]
+        )
+        if st.button("Register"):
+            if username == "" or password == "":
+                st.warning("Please enter all details")
