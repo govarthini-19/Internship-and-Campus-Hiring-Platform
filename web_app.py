@@ -66,3 +66,9 @@ def register(username, password, role):
         "INSERT INTO Users(username,password,role) VALUES(?,?,?)",
         (username, password, role)
     )
+    con.commit()
+    con.close()
+    return True
+def login(username, password):
+    con = connect()
+    cur = con.cursor()
