@@ -279,3 +279,15 @@ elif st.session_state.role == "student":
                     "Minimum CGPA:",
                     job[4]
                 )
+                st.write(
+                    "Openings:",
+                    job[5]
+                )
+                if st.button(
+                    "Apply",
+                    key="apply_" + str(job[0])
+                ):
+                    result = apply_job(
+                        st.session_state.username,
+                        job[0]
+                    )
