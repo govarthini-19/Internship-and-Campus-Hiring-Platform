@@ -89,3 +89,8 @@ def add_student(username, name, cgpa, skills):
            VALUES(?,?,?,?)""",
         (username, name, cgpa, skills)
     )
+    con.commit()
+    con.close()
+def add_company(username, company_name):
+    con = connect()
+    cur = con.cursor()
