@@ -166,3 +166,13 @@ if not st.session_state.logged_in:
         if st.button("Register"):
             if username == "" or password == "":
                 st.warning("Please enter all details")
+            else:
+                result = register(
+                    username,
+                    password,
+                    role
+                )
+                if result:
+                    st.success(
+                        "Registration successful!"
+                    )
