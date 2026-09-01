@@ -29,3 +29,13 @@ def create_tables():
         company_name TEXT
     )
     """)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS Jobs(
+        job_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        company_name TEXT,
+        role TEXT,
+        required_skills TEXT,
+        min_cgpa REAL,
+        openings INTEGER
+    )
+    """)
