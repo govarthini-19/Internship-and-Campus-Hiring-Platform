@@ -325,3 +325,13 @@ elif st.session_state.role == "student":
                 st.write("Role:", app[2])
                 st.write("Status:", app[3])
                 st.divider()
+    elif menu == "Logout":
+        st.session_state.logged_in = False
+        st.session_state.username = ""
+        st.session_state.role = ""
+        st.rerun()
+elif st.session_state.role == "company":
+    st.sidebar.success(
+        "Company: " +
+        st.session_state.username
+    )
