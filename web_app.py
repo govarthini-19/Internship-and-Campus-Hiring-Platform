@@ -102,3 +102,12 @@ def add_company(username, company_name):
     )
     con.commit()
     con.close()
+def post_job(company_name, role, skills, cgpa, openings):
+    con = connect()
+    cur = con.cursor()
+    cur.execute(
+        """INSERT INTO Jobs
+           (company_name,role,required_skills,min_cgpa,openings)
+           VALUES(?,?,?,?,?)""",
+        (company_name, role, skills, cgpa, openings)
+    )
