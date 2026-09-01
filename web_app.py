@@ -134,3 +134,10 @@ def apply_job(username, job_id):
     con.commit()
     con.close()
     return True
+st.set_page_config(
+    page_title="Campus Hiring Platform",
+    page_icon="🎓",
+    layout="wide"
+)
+st.title("🎓 Internship & Campus Hiring Platform")
+st.write("Connect Students with Companies")
