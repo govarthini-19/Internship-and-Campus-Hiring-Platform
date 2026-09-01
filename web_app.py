@@ -39,3 +39,14 @@ def create_tables():
         openings INTEGER
     )
     """)
+    cur.execute("""
+    CREATE TABLE IF NOT EXISTS Applications(
+        application_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        student_username TEXT,
+        job_id INTEGER,
+        status TEXT
+    )
+    """)
+    con.commit()
+    con.close()
+create_tables()
