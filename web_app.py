@@ -59,3 +59,10 @@ def register(username, password, role):
         (username,)
     )
     user = cur.fetchone()
+    if user:
+        con.close()
+        return False
+    cur.execute(
+        "INSERT INTO Users(username,password,role) VALUES(?,?,?)",
+        (username, password, role)
+    )
