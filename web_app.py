@@ -238,3 +238,14 @@ elif st.session_state.role == "student":
             max_value=10.0,
             step=0.1
         )
+        skills = st.text_input(
+            "Skills",
+            placeholder="Python, SQL, Java"
+        )
+        if st.button("Save Profile"):
+            add_student(
+                st.session_state.username,
+                name,
+                cgpa,
+                skills.lower()
+            )
