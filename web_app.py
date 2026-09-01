@@ -182,3 +182,14 @@ if not st.session_state.logged_in:
                     )
     else:
         st.header("🔐 User Login")
+        username = st.text_input("Username")
+
+        password = st.text_input(
+            "Password",
+            type="password"
+        )
+        if st.button("Login"):
+            user = login(
+                username,
+                password
+            )
