@@ -111,3 +111,8 @@ def post_job(company_name, role, skills, cgpa, openings):
            VALUES(?,?,?,?,?)""",
         (company_name, role, skills, cgpa, openings)
     )
+    con.commit()
+    con.close()
+def apply_job(username, job_id):
+    con = connect()
+    cur = con.cursor()
