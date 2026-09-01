@@ -291,3 +291,12 @@ elif st.session_state.role == "student":
                         st.session_state.username,
                         job[0]
                     )
+                    if result:
+                        st.success(
+                            "Application submitted!"
+                        )
+                    else:
+                        st.warning(
+                            "Already applied!"
+                        )
+                st.divider()
