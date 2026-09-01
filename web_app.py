@@ -198,3 +198,13 @@ if not st.session_state.logged_in:
                 st.session_state.username = username
                 st.session_state.role = user[1]
                 st.rerun()
+            else:
+                st.error(
+                    "Invalid username or password!"
+                )
+elif st.session_state.role == "student":
+
+    st.sidebar.success(
+        "Student: " +
+        st.session_state.username
+    )
