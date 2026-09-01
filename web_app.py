@@ -141,3 +141,9 @@ st.set_page_config(
 )
 st.title("🎓 Internship & Campus Hiring Platform")
 st.write("Connect Students with Companies")
+if "logged_in" not in st.session_state:
+    st.session_state.logged_in = False
+if "username" not in st.session_state:
+    st.session_state.username = ""
+if "role" not in st.session_state:
+    st.session_state.role = ""
