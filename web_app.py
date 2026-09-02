@@ -380,3 +380,13 @@ elif st.session_state.role == "company":
         role = st.text_input(
             "Job Role"
         )
+        skills = st.text_input(
+            "Required Skills",
+            placeholder="Python, SQL"
+        )
+        min_cgpa = st.number_input(
+            "Minimum CGPA",
+            min_value=0.0,
+            max_value=10.0,
+            step=0.1
+        )
