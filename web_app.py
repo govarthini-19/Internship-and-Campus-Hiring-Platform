@@ -363,3 +363,20 @@ elif st.session_state.role == "company":
         company_name = st.text_input(
             "Company Name"
         )
+        if st.button("Save Company"):
+            add_company(
+                st.session_state.username,
+                company_name
+            )
+            st.success(
+                "Company profile saved!"
+            )
+# ---------------- POST JOB ----------------
+    elif menu == "Post Job":
+        st.header("📢 Post Internship / Job")
+        company_name = st.text_input(
+            "Company Name"
+        )
+        role = st.text_input(
+            "Job Role"
+        )
