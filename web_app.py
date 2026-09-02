@@ -416,3 +416,20 @@ elif st.session_state.role == "company":
         st.header("💼 Posted Jobs")
         con = connect()
         cur = con.cursor()
+        cur.execute(
+            """SELECT job_id,role,
+                      required_skills,
+                      min_cgpa,openings
+               FROM Jobs
+               WHERE company_name IN
+               (SELECT company_name
+                FROM Companies
+                WHERE username=?)""",
+            (st.session_state.username,)
+        )
+        jobs = cur.fetchall()
+        con.close()
+        if not jobs:
+            st.info("No jobs posted")
+        else:
+            for job in jobs:
