@@ -487,3 +487,9 @@ elif st.session_state.role == "company":
                     app[3]
                 )
                 st.divider()
+# ---------------- LOGOUT ----------------
+    elif menu == "Logout":
+        st.session_state.logged_in = False
+        st.session_state.username = ""
+        st.session_state.role = ""
+        st.rerun()
