@@ -449,3 +449,41 @@ elif st.session_state.role == "company":
                     "Openings:", job[4]
                 )
                 st.divider()
+ # ---------------- APPLICATIONS ----------------
+    elif menu == "View Applications":
+        st.header("👥 Candidate Applications")
+        con = connect()
+        cur = con.cursor()
+        cur.execute(
+            """SELECT
+               Applications.application_id,
+               Applications.student_username,
+               Jobs.role,
+               Applications.status
+               FROM Applications
+               JOIN Jobs
+               ON Applications.job_id = Jobs.job_id"""
+        )
+        applications = cur.fetchall()
+        con.close()
+        if not applications:
+            st.info("No applications")
+        else:
+            for app in applications:
+                st.write(
+                    "Application ID:",
+                    app[0]
+                )
+                st.write(
+                    "Student:",
+                    app[1]
+                )
+                st.write(
+                    "Job Role:",
+                    app[2]
+                )
+                st.write(
+                    "Status:",
+                    app[3]
+                )
+                st.divider()
