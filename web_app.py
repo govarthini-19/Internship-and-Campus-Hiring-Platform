@@ -433,3 +433,19 @@ elif st.session_state.role == "company":
             st.info("No jobs posted")
         else:
             for job in jobs:
+ st.write(
+                    "Job ID:", job[0]
+                )
+                st.write(
+                    "Role:", job[1]
+                )
+                st.write(
+                    "Skills:", job[2]
+                )
+                st.write(
+                    "Minimum CGPA:", job[3]
+                )
+                st.write(
+                    "Openings:", job[4]
+                )
+                st.divider()
