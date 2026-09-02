@@ -404,3 +404,15 @@ elif st.session_state.role == "company":
                     min_cgpa,
                     openings
                 )
+                st.success(
+                    "Job posted successfully!"
+                )
+            else:
+                st.warning(
+                    "Please fill all details"
+                )
+    # ---------------- VIEW JOBS ----------------
+    elif menu == "View Jobs":
+        st.header("💼 Posted Jobs")
+        con = connect()
+        cur = con.cursor()
