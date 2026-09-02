@@ -390,3 +390,17 @@ elif st.session_state.role == "company":
             max_value=10.0,
             step=0.1
         )
+        openings = st.number_input(
+            "Number of Openings",
+            min_value=1,
+            step=1
+        )
+        if st.button("Post Job"):
+            if company_name and role and skills:
+                post_job(
+                    company_name,
+                    role,
+                    skills.lower(),
+                    min_cgpa,
+                    openings
+                )
