@@ -335,3 +335,31 @@ elif st.session_state.role == "company":
         "Company: " +
         st.session_state.username
     )
+    menu = st.sidebar.selectbox(
+        "Company Menu",
+        [
+            "Dashboard",
+            "Company Profile",
+            "Post Job",
+            "View Jobs",
+            "View Applications",
+            "Logout"
+        ]
+    )
+# ---------------- DASHBOARD ----------------
+    if menu == "Dashboard":
+        st.header("🏢 Company Dashboard")
+        st.info(
+            "Welcome Company!"
+        )
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("Role", "Company")
+        with col2:
+            st.metric("Hiring", "Active")
+# ---------------- COMPANY PROFILE ----------------
+    elif menu == "Company Profile":
+        st.header("🏢 Company Profile")
+        company_name = st.text_input(
+            "Company Name"
+        )
